@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1065950023490",
+    "project_id": "goconnect-dead8",
+    "storage_bucket": "goconnect-dead8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1065950023490:android:888efbac4c50b80cc482db",
+        "android_client_info": {
+          "package_name": "com.example.goconnect"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1065950023490-2o1qloc1u4cmsjve2l2df1434804fuet.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyALyGszfZExpCyCeqYyycz_hYBnEbPGsSk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1065950023490-2o1qloc1u4cmsjve2l2df1434804fuet.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

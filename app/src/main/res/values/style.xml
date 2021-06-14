@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.Design.NoActionBar" parent="Theme.AppCompat.Light.DarkActionBar" >
+        <item name="colorPrimary">@color/grey</item>
+        <item name="colorPrimaryDark">@color/black</item>
+
+    </style>
+
+
+</resources>
