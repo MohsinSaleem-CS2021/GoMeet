@@ -17,12 +17,13 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
-public class MainScreen extends AppCompatActivity implements MyAdapter.OnItemListener{
+public class MainScreen extends AppCompatActivity {
 
     private RecyclerView recyclerView;
     private Button button;
-    LinearLayoutManager layoutManager;
+    GridLayoutManager layoutManager;
     ArrayList<MyData> servicesList = new ArrayList<>();
+    MyData individual_service;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +35,7 @@ public class MainScreen extends AppCompatActivity implements MyAdapter.OnItemLis
         button = findViewById(R.id.services);
 
         addData();
-        MyAdapter myAdapter = new MyAdapter(this, servicesList, this);
+        MyAdapter myAdapter = new MyAdapter(this, servicesList);
 
         recyclerView.hasFixedSize();
         layoutManager = new GridLayoutManager(this, 2);
@@ -54,9 +55,4 @@ public class MainScreen extends AppCompatActivity implements MyAdapter.OnItemLis
         servicesList.add(new MyData(R.drawable.tailor, "tailor"));
     }
 
-    @Override
-    public void onItemClick(int adapterPosition) {
-        Intent intent = new Intent(this, Login.class);
-        startActivity(intent);
-    }
 }
