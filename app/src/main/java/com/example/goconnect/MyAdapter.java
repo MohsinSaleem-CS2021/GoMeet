@@ -50,6 +50,8 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.viewHolder> {
 
         holder.image.setImageResource(data.getImage());
         holder.name.setText(data.getTitle());
+
+        //when clicked on any service, will send that service Image and name
         holder.view.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -82,16 +84,11 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.viewHolder> {
             name = itemView.findViewById(R.id.service_name);
             this.view=itemView;
 
-            //this.onItemListerner = onItemListener;
-
-            //itemView.setOnClickListener(this);
         }
 
         @Override
         public void onClick(View v) {
             //onItemListerner.onItemClick(getAdapterPosition());
-
-
 
         }
     }

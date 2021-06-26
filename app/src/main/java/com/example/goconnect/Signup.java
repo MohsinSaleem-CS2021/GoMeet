@@ -86,7 +86,7 @@ public class Signup extends AppCompatActivity {
                         // means authentication is successfull
                         Toast.makeText(getApplicationContext(),"Signup Successful", Toast.LENGTH_SHORT).show();
 
-                        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                        Intent intent = new Intent(getApplicationContext(), AddServices.class);
                         startActivity(intent);
                         finish();
                     }

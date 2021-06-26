@@ -1,9 +1,14 @@
 package com.example.goconnect;
 
+import android.content.Intent;
+
 public class MyData {
     private int image;
     private String title;
 
+    public MyData(){
+
+    }
 
     public MyData(int image, String title) {
         this.image = image;

@@ -18,7 +18,7 @@
         android:orientation="vertical">
 
         <Button
-            android:id="@+id/services"
+            android:id="@+id/addServices"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Add Services"

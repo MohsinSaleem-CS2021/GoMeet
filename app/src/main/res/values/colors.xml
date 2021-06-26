@@ -13,7 +13,8 @@
     <color name="red">#FF0000	</color>
     <color name="voilet">#5c3c92	</color>
     <color name="mustard">#f3ca20	</color>
-    <color name="yellow">#FFEB3B</color>
+    <color name="yellow">#FFFF00</color>
     <color name="magenta">#FD0299</color>
+    <color name="light_grey">#d3d3d3</color>
 
 </resources>

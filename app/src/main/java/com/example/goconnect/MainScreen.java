@@ -2,25 +2,19 @@ package com.example.goconnect;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
-import android.widget.Adapter;
+import android.view.View;
 import android.widget.Button;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
 
 public class MainScreen extends AppCompatActivity {
 
     private RecyclerView recyclerView;
-    private Button button;
+    private Button addServices;
     GridLayoutManager layoutManager;
     ArrayList<MyData> servicesList = new ArrayList<>();
     MyData individual_service;
@@ -30,9 +24,8 @@ public class MainScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_screen);
 
-
         recyclerView = findViewById(R.id.recyclerView);
-        button = findViewById(R.id.services);
+        addServices = findViewById(R.id.addServices);
 
         addData();
         MyAdapter myAdapter = new MyAdapter(this, servicesList);
@@ -41,6 +34,14 @@ public class MainScreen extends AppCompatActivity {
         layoutManager = new GridLayoutManager(this, 2);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(myAdapter);
+
+        addServices.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), Login.class);
+                startActivity(intent);
+            }
+        });
 
     }
     
