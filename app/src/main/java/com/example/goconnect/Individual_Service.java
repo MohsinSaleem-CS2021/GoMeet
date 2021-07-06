@@ -16,6 +16,7 @@ import android.transition.AutoTransition;
 import android.transition.TransitionManager;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -43,6 +44,7 @@ public class Individual_Service extends AppCompatActivity {
     LinearLayoutManager layoutManager;
     ServicesAdapter servicesAdapter;
 
+    String title;
     FirebaseAuth firebaseUser;
     FirebaseDatabase database;
     DatabaseReference reference;
@@ -52,8 +54,12 @@ public class Individual_Service extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_individual__service);
 
-        Intent intent = getIntent();
-        String title = intent.getStringExtra("NAME");
+        if(getIntent() != null){
+            Intent intent = getIntent();
+
+            title = intent.getStringExtra("NAME");
+        }
+
 
         firebaseUser = FirebaseAuth.getInstance();
         database = FirebaseDatabase.getInstance();
@@ -62,16 +68,20 @@ public class Individual_Service extends AppCompatActivity {
 
         recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
 
+
         recyclerView.hasFixedSize();
         layoutManager = new LinearLayoutManager(context);
         recyclerView.setLayoutManager(layoutManager);
 
+        //reading data from firebase and showing it in the fields.
         FirebaseRecyclerOptions<Services_helper> numberOfServices = new FirebaseRecyclerOptions.Builder<Services_helper>()
                 .setQuery(reference, Services_helper.class)
                 .build();
 
-        servicesAdapter = new ServicesAdapter(numberOfServices);
+        servicesAdapter = new ServicesAdapter(numberOfServices, this);
         recyclerView.setAdapter(servicesAdapter);
+
+
 
 //        reference.addListenerForSingleValueEvent(new ValueEventListener() {
 //            @Override
