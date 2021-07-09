@@ -15,12 +15,11 @@
         android:usesCleartextTraffic="true"
         android:supportsRtl="true"
         android:theme="@style/Theme.GoConnect">
-        <activity android:name=".OrderService"></activity>
+        <activity android:name=".OrderService"> </activity>
         <activity android:name=".AddServices">
         </activity>
-        <activity android:name=".Individual_Service">
+        <activity android:name=".Individual_Service"> </activity>
 
-        </activity>
         <activity android:name=".MainScreen"
             android:theme="@style/Theme.Design.NoActionBar">
 

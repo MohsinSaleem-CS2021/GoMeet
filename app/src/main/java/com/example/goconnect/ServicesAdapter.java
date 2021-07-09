@@ -2,6 +2,7 @@ package com.example.goconnect;
 
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,6 +20,7 @@ import com.firebase.ui.database.FirebaseRecyclerOptions;
 import org.w3c.dom.Text;
 
 import java.util.ArrayList;
+import java.util.Locale;
 
 public class ServicesAdapter extends FirebaseRecyclerAdapter<Services_helper, ServicesAdapter.viewHolder> {
 
@@ -46,6 +48,21 @@ public class ServicesAdapter extends FirebaseRecyclerAdapter<Services_helper, Se
         holder.timings.setText(numberOfServices.getTimings());
         holder.phoneNo.setText(numberOfServices.getPhoneNo());
 
+        Float Latitude = Float.valueOf(numberOfServices.getLatitude());                                                //latitude and Longitude values to open the location on maps.
+        Float Longitude = Float.valueOf(numberOfServices.getLongitude());
+        // To see location on Google maps
+        holder.location.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(android.content.Intent.ACTION_VIEW, Uri.parse("http://maps.google.com/maps?&daddr="+Latitude+","+Longitude));
+                context.startActivity(intent);
+
+//                String maps = String.format(Locale.ENGLISH, "geo:%f,%f", Latitude, Longitude);
+//                Intent intent = new Intent(android.content.Intent.ACTION_VIEW, Uri.parse(maps));
+//                context.startActivity(intent);
+            }
+        });
+
         //when the customer selects a service, he then places the order.
         holder.order.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -63,6 +80,7 @@ public class ServicesAdapter extends FirebaseRecyclerAdapter<Services_helper, Se
 
 
         TextView location, phoneNo, timings, prices;
+        TextView latitude, longitude;
         View view;
         Button order;
 

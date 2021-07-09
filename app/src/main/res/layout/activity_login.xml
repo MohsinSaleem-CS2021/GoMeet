@@ -31,6 +31,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="60dp"
         android:hint="Enter Email"
+        android:drawableStart="@drawable/ic_email"
         android:ems="10"
         android:inputType="textEmailAddress" />
 
@@ -39,8 +40,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:hint="Password"
+        android:drawableStart="@drawable/ic_lock"
         android:ems="10"
+        android:hint="Password"
         android:inputType="textPassword" />
 
     <Button

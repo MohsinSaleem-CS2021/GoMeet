@@ -41,6 +41,8 @@ public class AddServices extends AppCompatActivity {
     FirebaseAuth firebaseUser;
     DatabaseReference reference;
 
+    Double Latitude, Longitude;
+
     private ResultReceiver resultReceiver;
     Button saveBtn;
 
@@ -88,18 +90,21 @@ public class AddServices extends AppCompatActivity {
                 String phone = phoneNo.getEditableText().toString();
                 String time = timing.getEditableText().toString();
                 String loc = location.getText().toString();
+                String saveLatitude = Latitude.toString();
+                String saveLongitude = Longitude.toString();
 
-                Log.i("mohsin", "loc:" +loc);
 
-                Services_helper servicesHelper = new Services_helper(title, cost, phone, time, loc);
+                Log.i("mohsin", "lat: " +saveLatitude + "  Long:" + saveLongitude);
+
+                Services_helper servicesHelper = new Services_helper(title, cost, phone, time, loc, saveLatitude, saveLongitude);
 
                 reference = database.getReference("Add_Services");
 
                 reference.child(title).child(firebaseUser.getUid()).setValue(servicesHelper);
 
-                //Intent intent = new Intent(getApplicationContext(), MainScreen.class);
-
-
+                Toast.makeText(getApplicationContext(), "Services Added", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(getApplicationContext(), MainScreen.class);
+                startActivity(intent);
             }
         });
 
@@ -148,7 +153,8 @@ public class AddServices extends AppCompatActivity {
                             double latitude = locationResult.getLocations().get(latestLocationIndex).getLatitude();
                             double longitude = locationResult.getLocations().get(latestLocationIndex).getLongitude();
 
-                            //location.setText(String.format("Latitude: %s \n Longitude: %s", latitude,longitude));
+                            Latitude = latitude;
+                            Longitude = longitude;
 
                             Location location = new Location("providerNA");
                             location.setLatitude(latitude);

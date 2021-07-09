@@ -2,18 +2,28 @@ package com.example.goconnect;
 
 public class Services_helper {
 
-    String serviceName, prices, phoneNo, timings, location;
+    String serviceName;
+    String prices;
+    String phoneNo;
+    String timings;
+    String location;
+    String  Latitude;
+    String Longitude;
+
 
 
     public Services_helper() {
 
     }
-    public Services_helper(String serviceName, String prices, String phoneNo, String timings, String location) {
+
+    public Services_helper(String serviceName, String prices, String phoneNo, String timings, String location, String Lat, String Long) {
         this.serviceName = serviceName;
         this.prices = prices;
         this.phoneNo = phoneNo;
         this.timings = timings;
         this.location = location;
+        this.Latitude = Lat;
+        this.Longitude = Long;
     }
 
     public String getServiceName() {
@@ -55,4 +65,22 @@ public class Services_helper {
     public void setLocation(String location) {
         this.location = location;
     }
+
+    public String getLatitude() {
+        return Latitude;
+    }
+
+    public void setLatitude(String latitude) {
+        Latitude = latitude;
+    }
+
+    public String getLongitude() {
+        return Longitude;
+    }
+
+    public void setLongitude(String longitude) {
+        Longitude = longitude;
+    }
+
+
 }
